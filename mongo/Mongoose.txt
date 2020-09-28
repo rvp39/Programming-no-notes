@@ -1,0 +1,12 @@
+@ in console
+    $npm install mongoose //install mongoose
+
+@ in node js file
+    # var mongoose = require("mongoose"); 
+    # mongoose.connect("mongodb://localhost/<db_name>");
+    # var schema = new.mongoose.Schema({
+        key_1: type,
+        key_2: Type,....
+        });
+    # var <model> = mongoose.model("<model(sigular ver of the model)>",Schema);
+    # new
