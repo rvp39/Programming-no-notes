@@ -1,8 +1,22 @@
-# mongod- runs mongo server (run in a seperate console)
-# mongo - runs mongo console
-# show dbs - will show database names in the current server
-# use <db_name> - switches to db or makes new and switches to it
-# db.<db_name>.insert("JS_obj") - inserts a key value pair into db_name
-# db.<db_name>.find()- returns all the db entry
-              .find(key:"value")- returns entry matching key value pair
-#  
+@list of mongo db commands
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+            command                                                         |            USE
+-----------------------------------------------------------------------------------------------------------------------------------------
+# mongod                                                                    -   runs mongo server (run in a seperate console)
+
+# mongo                                                                     -   runs mongo console
+
+# show dbs                                                                  -   will show database names in the current server
+
+# use <db_name>                                                             -   switches to db or makes new and switches to it
+
+# db.<db_name>.insert("JS_obj")                                             -   inserts a key value pair into db_name
+
+# db.<db_name>.find()                                                       -   returns all the db entry
+              .find({key:"value"})                                          -   returns entry matching key value pair               
+                                                                                                                                                      
+# db.<db_name>.update({select by keyvalue pair},{$set:{new key val pair}})  -   updates only set key value pair in the selected entry
+
+#db.<db_name>.remove({selectby key value pair})                             -   remove matching key value pair
