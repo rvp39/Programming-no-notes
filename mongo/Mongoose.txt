@@ -1,12 +1,53 @@
-@ in console
-    $npm install mongoose //install mongoose
-
-@ in node js file
-    # var mongoose = require("mongoose"); 
-    # mongoose.connect("mongodb://localhost/<db_name>");
-    # var schema = new.mongoose.Schema({
-        key_1: type,
-        key_2: Type,....
-        });
-    # var <model> = mongoose.model("<model(sigular ver of the model)>",Schema);
-    # 
+#######################################################
+# Blue print for crud operation usng node and mongodb #
+#######################################################
++--------------------------------------------------------------------------------------+
+| @ install mongoose(in console)                                                       |
+|     $npm install mongoose //install mongoose                                         |                  
++ -------------------------------------------------------------------------------------+
+| @ initaialize and configure mongoose (in node js file)                               |
+|     # var mongoose = require("mongoose");                                            |
+|     # mongoose.connect("mongodb://localhost/<db_name>");                             |
++--------------------------------------------------------------------------------------+
+| @ set up a data schema and a model (add the scema to an entity)(in node js file)     |
+|     # var _schema = new.mongoose.Schema({                                            |
+|         key_1: type,                                                                 |
+|         key_2: Type,....                                                             |
+|         });                                                                          |
+|    # var <model> = mongoose.model("<model(sigular ver of the model)>",Schema);       |
++--------------------------------------------------------------------------------------+
+| @ to create any entity pass a js object with the schema in mind(in node js file)     |
+|     # <model>.create({schema object});//data = req.body.[model name]                 |
+|     # <model>.find({},(err,coll)=>{ // collection is plural of model cat -> cats     |
+|        res.render("index",{<model>:<model>}//passing in data to index.ejs);          |
+|    })                                                                                |
++--------------------------------------------------------------------------------------+
+| @ to loop through all the db entry and display in index (in ejs file)                | 
+|     # <% <collection.forEach((<model>)=>{ %>                                         |
+|         <div>                                                                        |
+|            <%= model.key1 %>                                                         |
+|            ...                                                                       |
+|         </div>                                                                       | 
+|      <% }) %>                                                                        |
++--------------------------------------------------------------------------------------+
+| @ for creating the object using form (in ejs)                                        |
+|     #<form action="/index" method="post">                                            |
+|     #    <input type="text" name="<model_h[key1]>" >                                 |
+|     #    <input type="text" name="<model_h[key2]>" >                                 |
+|     #</form>                                                                         |
+|   @to take the data fro form and put into db (in node js file)                       |
+|     #model.create(req.body.model_h,(err,new)=>{///keys in model_h should match schema|
+|         if !err{                                                                     |
+|             res.redirect("/index);                                                   |
+|         }                                                                            |
+|     });                                                                              |
++--------------------------------------------------------------------------------------+
+| @ for show route (in node js file)                                                   |
+|     # app.get('/index/:id,(req,res)=>{                                               | 
+|         model.findById(req.params.id,(err,found data)=>{                             | 
+|             res.render(show,{model:found data});                                     |
+|         });                                                                          |
+|     });                                                                              | 
+| @ in inex ejs                                                                        | 
+|     #<a href="/index/<%= model._id%>">go to</a>                                      | 
++--------------------------------------------------------------------------------------+
