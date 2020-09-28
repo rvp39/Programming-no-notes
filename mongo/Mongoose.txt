@@ -9,4 +9,4 @@
         key_2: Type,....
         });
     # var <model> = mongoose.model("<model(sigular ver of the model)>",Schema);
-    # new
+    # 

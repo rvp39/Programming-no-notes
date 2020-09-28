@@ -19,4 +19,5 @@
                                                                                                                                                       
 # db.<db_name>.update({select by keyvalue pair},{$set:{new key val pair}})  -   updates only set key value pair in the selected entry
 
-#db.<db_name>.remove({selectby key value pair})                             -   remove matching key value pair
+# db.<db_name>.remove({selectby key value pair})                             -   remove matching key value pair
+# show collections
